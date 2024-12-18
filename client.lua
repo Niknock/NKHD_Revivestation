@@ -37,9 +37,9 @@ Citizen.CreateThread(function()
                 end
             elseif distanceToHeal < 1.5 then
                 if Config.Locale == 'de' then
-                    ESX.ShowHelpNotification("Drücke ~INPUT_CONTEXT~ um dich zu healen ($" .. Config.ReviveCost .. ")")
+                    ESX.ShowHelpNotification("Drücke ~INPUT_CONTEXT~ um dich zu healen ($" .. Config.HealCost .. ")")
                 elseif Config.Locale == 'en' then
-                    ESX.ShowHelpNotification("Press ~INPUT_CONTEXT~ to heal yourself ($" .. Config.ReviveCost .. ")")
+                    ESX.ShowHelpNotification("Press ~INPUT_CONTEXT~ to heal yourself ($" .. Config.HealCost .. ")")
                 elseif Config.Locale == 'custom' then
                     ESX.ShowHelpNotification("Your Custom locale here (client.lua).")
                 end
@@ -58,4 +58,14 @@ AddEventHandler('nkhd_revivestation:toggleMarkers', function()
     else
         markersVisible = false
     end
+end)
+
+RegisterNetEvent('nkhd_revivestation:toggleMarkersAutoOff')
+AddEventHandler('nkhd_revivestation:toggleMarkersAutoOff', function()
+    markersVisible = false
+end)
+
+RegisterNetEvent('nkhd_revivestation:toggleMarkersAutoOn')
+AddEventHandler('nkhd_revivestation:toggleMarkersAutoOn', function()
+    markersVisible = true
 end)
